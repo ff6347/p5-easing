@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+// Example: retrieve `src/content/blog/**`
+export async function getStaticPaths() {
+	const docs = await getCollection("docs");
+
+	return docs.map((doc) => ({
+		params: { slug: doc.slug },
+		props: doc,
+	}));
+}
+
+type Props = CollectionEntry<"docs">;
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout>
+	<Content />
+</Layout>
