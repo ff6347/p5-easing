@@ -25,7 +25,8 @@
 	"scripts": {
 		"build": "rollup -c",
 		"dev": "rollup -c -w",
-		"test:manual": "live-server test"
+		"test:manual": "live-server test",
+		"test": "echo 'no tests yet' exit 0"
 	},
 	"name": "@ff6347/p5-easing",
 	"version": "0.1.0",
