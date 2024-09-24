@@ -1,4 +1,39 @@
 {
+	"name": "@ff6347/p5-easing",
+	"version": "0.1.1-0",
+	"type": "module",
+	"main": "./dist/p5.easing.js",
+	"module": "./dist/p5.easing.mjs",
+	"types": "./dist/types/index.d.ts",
+	"unpkg": "./dist/p5.easing.min.js",
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/p5.easing.mjs",
+			"require": "./dist/p5.easing.js",
+			"default": "./dist/p5.easing.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"dist/",
+		"package.json",
+		"README.md",
+		"LICENSE"
+	],
+	"keywords": [
+		"p5.js",
+		"easing",
+		"penner"
+	],
+	"homepage": "https://github.com/ff6347/p5-easing",
+	"repository": "ff6347/p5-easing",
+	"bugs": {
+		"url": "https://github.com/ff6347/p5-easing/issues"
+	},
+	"author": "ff6347 <hash@ff6347.email>",
+	"license": "BSD",
+	"description": "Easing functions for p5js",
 	"devDependencies": {
 		"@eslint/js": "9.11.1",
 		"@rollup/plugin-terser": "0.4.4",
@@ -28,36 +63,6 @@
 		"test:manual": "live-server test",
 		"test": "echo 'no tests yet' exit 0"
 	},
-	"name": "@ff6347/p5-easing",
-	"version": "0.1.1-0",
-	"main": "./dist/p5.easing.js",
-	"module": "./dist/p5.easing.mjs",
-	"types": "./dist/types/index.d.ts",
-	"unpkg": "./dist/p5.easing.min.js",
-	"exports": {
-		".": {
-			"types": "./dist/types/index.d.ts",
-			"import": "./dist/p5.easing.mjs",
-			"require": "./dist/p5.easing.js",
-			"default": "./dist/p5.easing.js"
-		},
-		"./package.json": "./package.json"
-	},
-	"files": [
-		"dist/",
-		"package.json",
-		"README.md",
-		"LICENSE"
-	],
-	"keywords": [
-		"p5.js",
-		"easing",
-		"penner"
-	],
-	"author": "ff6347 <hash@ff6347.email>",
-	"license": "BSD",
-	"description": "Easing functions for p5js",
-	"type": "module",
 	"prettier": {
 		"tabWidth": 2,
 		"semi": true,
