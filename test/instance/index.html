@@ -1,33 +1,41 @@
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>p5.easing instanc mode</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>p5.easing instanc mode</title>
-</head>
-
-<body>
-	<script src="../lib/p5.js"></script>
-	<script src="../lib/p5.easing.js"></script>
-	<script>
-		const s = (sketch) => {
-			const start = 0;
-			const end = 100;
-			const duration = 100;
-			sketch.setup = () => {
-				sketch.createCanvas(100, 100);
+	<body>
+		<script src="../lib/p5.js"></script>
+		<script src="../lib/p5.easing.js"></script>
+		<script>
+			const s = (sketch) => {
+				const start = 0;
+				const end = 100;
+				const duration = 100;
+				sketch.setup = () => {
+					sketch.createCanvas(100, 100);
+				};
+				sketch.draw = () => {
+					sketch.background(255);
+					let x = sketch.easeInOutCubic(
+						sketch.frameCount % duration,
+						start,
+						end,
+						duration,
+					);
+					let y = sketch.easeInOutCubic(
+						sketch.frameCount % duration,
+						start,
+						end,
+						duration,
+					);
+					sketch.circle(x, y, 10);
+				};
 			};
-			sketch.draw = () => {
-				sketch.background(255);
-				let x = sketch.easeInOutCubic(sketch.frameCount % duration, start, end, duration);
-				let y = sketch.easeInOutCubic(sketch.frameCount % duration, start, end, duration);
-				sketch.circle(x, y, 10);
-			};
-		};
 
-		let myp5 = new p5(s);
-	</script>
-</body>
-
+			let myp5 = new p5(s);
+		</script>
+	</body>
 </html>

@@ -917,7 +917,6 @@ this.p5.easing = (function (exports) {
         //@ts-expect-error window.p5 is added by the p5.js library
     })(window.p5);
 
-    exports.default = easing;
     exports.easeInBack = easeIn$a;
     exports.easeInBounce = easeIn$9;
     exports.easeInCirc = easeIn$8;
@@ -951,8 +950,6 @@ this.p5.easing = (function (exports) {
     exports.easeOutQuart = easeOut$2;
     exports.easeOutQuint = easeOut$1;
     exports.easeOutSine = easeOut;
-
-    Object.defineProperty(exports, '__esModule', { value: true });
 
     return exports;
 
