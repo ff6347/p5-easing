@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="(p5) easing functions">
+	<main>
+		<h1>(P5) Easing functions</h1>
+		<p>
+			Based on <a
+				href="http://robertpenner.com/easing/"
+				target="_blank"
+				rel="noopener noreferrer">Robert Penners Easing</a
+			>
+		</p>
+		<div id="sketch"></div>
+		<p>
+			See the <a href="./docs/readme">docs</a>
+		</p>
+	</main>
+	<script src="https://unpkg.com/p5@1.10.0/lib/p5.min.js" is:inline></script>
+	<script
+		src="https://unpkg.com/@ff6347/p5-easing@latest/dist/p5.easing.min.js"
+		is:inline></script>
+	<script is:inline>
+		const duration = 100;
+		const diam = 10;
+
+		function setup() {
+			const canvas = createCanvas(100, 100);
+			canvas.parent("sketch");
+			background(255);
+		}
+		function draw() {
+			background(255);
+			const easing = easeInOutCubic(frameCount % duration, -10, 120, duration);
+			ellipse(easing, height / 2, diam, diam);
+		}
+	</script>
+</Layout>

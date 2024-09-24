@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>p5.easing global mode minified</title>
+		<script src="../lib/p5.js"></script>
+		<script src="../lib/p5.easing.min.js"></script>
+	</head>
+
+	<body>
+		<script>
+			const start = 0;
+			const end = 100;
+			const duration = 100;
+			function setup() {
+				createCanvas(end, end);
+			}
+			function draw() {
+				background(255, 10);
+				const x = easeInExpo(frameCount % duration, start, end, duration);
+				const y = easeInLinear(frameCount % duration, start, end, duration);
+				console.log({ frameCount, x, y });
+				circle(x, y, 10);
+			}
+		</script>
+	</body>
+</html>
