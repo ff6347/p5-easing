@@ -43,7 +43,10 @@
 		"./package.json": "./package.json"
 	},
 	"files": [
-		"dist"
+		"dist/",
+		"package.json",
+		"README.md",
+		"LICENSE"
 	],
 	"keywords": [
 		"p5.js",
