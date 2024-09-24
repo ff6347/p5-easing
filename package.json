@@ -29,7 +29,7 @@
 		"test": "echo 'no tests yet' exit 0"
 	},
 	"name": "@ff6347/p5-easing",
-	"version": "0.1.0",
+	"version": "0.1.1-0",
 	"main": "./dist/p5.easing.js",
 	"module": "./dist/p5.easing.mjs",
 	"types": "./dist/types/index.d.ts",
