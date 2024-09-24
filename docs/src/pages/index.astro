@@ -24,12 +24,13 @@ import Layout from "../layouts/Layout.astro";
 	<script is:inline>
 		const duration = 100;
 		const diam = 10;
-
+		//@ts-ignore
 		function setup() {
 			const canvas = createCanvas(100, 100);
 			canvas.parent("sketch");
 			background(255);
 		}
+		//@ts-ignore
 		function draw() {
 			background(255);
 			const easing = easeInOutCubic(frameCount % duration, -10, 120, duration);

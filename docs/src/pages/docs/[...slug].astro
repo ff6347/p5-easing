@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 // Get all entries from a collection.
@@ -19,6 +19,6 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout>
+<Layout title={post.slug}>
 	<Content />
 </Layout>
