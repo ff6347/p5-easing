@@ -96,4 +96,3 @@ const easing = {
 	}
 	//@ts-expect-error window.p5 is added by the p5.js library
 })(window.p5);
-export default easing;

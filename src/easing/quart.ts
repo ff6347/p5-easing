@@ -28,7 +28,7 @@ export const easeIn: EasingFunction = (time, start, change, duration) => {
 	return change * (time /= duration) * time * time * time + start;
 };
 /**
- * Quart in easing function
+ * Quart out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -51,7 +51,7 @@ export const easeOut: EasingFunction = (time, start, change, duration) => {
 	);
 };
 /**
- * Quart in easing function
+ * Quart in-out easing function
  * @example
  * const start = 0;
  * const end = 100;

@@ -31,7 +31,7 @@ export const easeIn: EasingFunction = (time, start, change, duration) => {
 };
 
 /**
- * Expo in easing function
+ * Expo out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -54,7 +54,7 @@ export const easeOut: EasingFunction = (time, start, change, duration) => {
 		: change * (-Math.pow(2, (-10 * time) / duration) + 1) + start;
 };
 /**
- * Expo in easing function
+ * Expo in-out easing function
  * @example
  * const start = 0;
  * const end = 100;

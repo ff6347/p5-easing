@@ -39,7 +39,7 @@ export const easeIn: EasingFunction = (time, start, change, duration) => {
 };
 
 /**
- * Elastic in easing function
+ * Elastic out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -71,7 +71,7 @@ export const easeOut: EasingFunction = (time, start, change, duration) => {
 };
 
 /**
- * Elastic in easing function
+ * Elastic in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
