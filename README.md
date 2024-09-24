@@ -1,6 +1,6 @@
 # P5js Easing functions
 
-This is a simple library that provides easing functions for use with p5.js. The library is based on Robert Penner's easing equations.
+This is a library that provides easing functions for use with p5.js. The library is based on [Robert Penner's easing equations](http://robertpenner.com/easing/).
 
 ## Installation
 
