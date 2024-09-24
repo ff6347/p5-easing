@@ -22,12 +22,17 @@ import { EasingFunction } from "../types";
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeIn: EasingFunction = (time, start, change, duration) => {
+export const easeIn: EasingFunction = (time, start, end, duration) => {
 	return time === 0
 		? start
-		: change * Math.pow(2, 10 * (time / duration - 1)) + start;
+		: end * Math.pow(2, 10 * (time / duration - 1)) + start;
 };
 
 /**
@@ -46,12 +51,17 @@ export const easeIn: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeOut: EasingFunction = (time, start, change, duration) => {
+export const easeOut: EasingFunction = (time, start, end, duration) => {
 	return time === duration
-		? start + change
-		: change * (-Math.pow(2, (-10 * time) / duration) + 1) + start;
+		? start + end
+		: end * (-Math.pow(2, (-10 * time) / duration) + 1) + start;
 };
 /**
  * Expo in-out easing function
@@ -69,15 +79,20 @@ export const easeOut: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeInOut: EasingFunction = (time, start, change, duration) => {
+export const easeInOut: EasingFunction = (time, start, end, duration) => {
 	if (time === 0) return start;
-	if (time === duration) return start + change;
+	if (time === duration) return start + end;
 	if ((time /= duration / 2) < 1) {
-		return (change / 2) * Math.pow(2, 10 * (time - 1)) + start;
+		return (end / 2) * Math.pow(2, 10 * (time - 1)) + start;
 	}
-	return (change / 2) * (-Math.pow(2, -10 * --time) + 2) + start;
+	return (end / 2) * (-Math.pow(2, -10 * --time) + 2) + start;
 };
 
 export {

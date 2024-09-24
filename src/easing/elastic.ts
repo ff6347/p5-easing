@@ -22,16 +22,21 @@ import { EasingFunction } from "../types";
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeIn: EasingFunction = (time, start, change, duration) => {
+export const easeIn: EasingFunction = (time, start, end, duration) => {
 	if (time === 0) return start;
-	if ((time /= duration) === 1) return start + change;
+	if ((time /= duration) === 1) return start + end;
 	const p = duration * 0.3;
 	const s = p / 4;
 	return (
 		-(
-			change *
+			end *
 			Math.pow(2, 10 * (time -= 1)) *
 			Math.sin(((time * duration - s) * (2 * Math.PI)) / p)
 		) + start
@@ -54,18 +59,23 @@ export const easeIn: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeOut: EasingFunction = (time, start, change, duration) => {
+export const easeOut: EasingFunction = (time, start, end, duration) => {
 	if (time === 0) return start;
-	if ((time /= duration) === 1) return start + change;
+	if ((time /= duration) === 1) return start + end;
 	const p = duration * 0.3;
 	const s = p / 4;
 	return (
-		change *
+		end *
 			Math.pow(2, -10 * time) *
 			Math.sin(((time * duration - s) * (2 * Math.PI)) / p) +
-		change +
+		end +
 		start
 	);
 };
@@ -86,28 +96,33 @@ export const easeOut: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeInOut: EasingFunction = (time, start, change, duration) => {
+export const easeInOut: EasingFunction = (time, start, end, duration) => {
 	if (time === 0) return start;
-	if ((time /= duration / 2) === 2) return start + change;
+	if ((time /= duration / 2) === 2) return start + end;
 	const p = duration * (0.3 * 1.5);
 	const s = p / 4;
 	if (time < 1) {
 		return (
 			-0.5 *
-				(change *
+				(end *
 					Math.pow(2, 10 * (time -= 1)) *
 					Math.sin(((time * duration - s) * (2 * Math.PI)) / p)) +
 			start
 		);
 	}
 	return (
-		change *
+		end *
 			Math.pow(2, -10 * (time -= 1)) *
 			Math.sin(((time * duration - s) * (2 * Math.PI)) / p) *
 			0.5 +
-		change +
+		end +
 		start
 	);
 };

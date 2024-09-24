@@ -21,10 +21,15 @@ import { EasingFunction } from "../types";
  *   const y = frameCount % duration;
  *   circle(x, y, 10);
  * }
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeIn: EasingFunction = (time, start, change, duration) => {
+export const easeIn: EasingFunction = (time, start, end, duration) => {
 	const s = 1.70158;
-	return change * (time /= duration) * time * ((s + 1) * time - s) + start;
+	return end * (time /= duration) * time * ((s + 1) * time - s) + start;
 };
 
 /**
@@ -43,11 +48,16 @@ export const easeIn: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeOut: EasingFunction = (time, start, change, duration) => {
+export const easeOut: EasingFunction = (time, start, end, duration) => {
 	const s = 1.70158;
 	return (
-		change * ((time = time / duration - 1) * time * ((s + 1) * time + s) + 1) +
+		end * ((time = time / duration - 1) * time * ((s + 1) * time + s) + 1) +
 		start
 	);
 };
@@ -67,18 +77,19 @@ export const easeOut: EasingFunction = (time, start, change, duration) => {
  * const y = frameCount % duration;
  * circle(x, y, 10);
  * }
- *
- * @returns {number} - The calculated value at the current time.
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeInOut: EasingFunction = (time, start, change, duration) => {
+export const easeInOut: EasingFunction = (time, start, end, duration) => {
 	let s = 1.70158;
 	if ((time /= duration / 2) < 1) {
-		return (
-			(change / 2) * (time * time * (((s *= 1.525) + 1) * time - s)) + start
-		);
+		return (end / 2) * (time * time * (((s *= 1.525) + 1) * time - s)) + start;
 	}
 	return (
-		(change / 2) * ((time -= 2) * time * (((s *= 1.525) + 1) * time + s) + 2) +
+		(end / 2) * ((time -= 2) * time * (((s *= 1.525) + 1) * time + s) + 2) +
 		start
 	);
 };

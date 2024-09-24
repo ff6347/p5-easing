@@ -21,10 +21,15 @@ import { EasingFunction } from "../types";
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeIn: EasingFunction = (time, start, change, duration) => {
-	return change * (time /= duration) * time + start;
+export const easeIn: EasingFunction = (time, start, end, duration) => {
+	return end * (time /= duration) * time + start;
 };
 /**
  * Quad out easing function
@@ -42,10 +47,15 @@ export const easeIn: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeOut: EasingFunction = (time, start, change, duration) => {
-	return -change * (time /= duration) * (time - 2) + start;
+export const easeOut: EasingFunction = (time, start, end, duration) => {
+	return -end * (time /= duration) * (time - 2) + start;
 };
 /**
  * Quad in-out easing function
@@ -63,13 +73,18 @@ export const easeOut: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeInOut: EasingFunction = (time, start, change, duration) => {
+export const easeInOut: EasingFunction = (time, start, end, duration) => {
 	if ((time /= duration / 2) < 1) {
-		return (change / 2) * time * time + start;
+		return (end / 2) * time * time + start;
 	}
-	return (-change / 2) * (--time * (time - 2) - 1) + start;
+	return (-end / 2) * (--time * (time - 2) - 1) + start;
 };
 
 export {

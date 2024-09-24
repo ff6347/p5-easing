@@ -22,10 +22,15 @@ import { EasingFunction } from "../types";
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeIn: EasingFunction = (time, start, change, duration) => {
-	return change - easeOut(duration - time, 0, change, duration) + start;
+export const easeIn: EasingFunction = (time, start, end, duration) => {
+	return end - easeOut(duration - time, 0, end, duration) + start;
 };
 /**
  * Bounce out easing function
@@ -43,17 +48,21 @@ export const easeIn: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeOut: EasingFunction = (time, start, change, duration) => {
+export const easeOut: EasingFunction = (time, start, end, duration) => {
 	if ((time /= duration) < 1 / 2.75) {
-		return change * (7.5625 * time * time) + start;
+		return end * (7.5625 * time * time) + start;
 	} else if (time < 2 / 2.75) {
-		return change * (7.5625 * (time -= 1.5 / 2.75) * time + 0.75) + start;
+		return end * (7.5625 * (time -= 1.5 / 2.75) * time + 0.75) + start;
 	} else if (time < 2.5 / 2.75) {
-		return change * (7.5625 * (time -= 2.25 / 2.75) * time + 0.9375) + start;
+		return end * (7.5625 * (time -= 2.25 / 2.75) * time + 0.9375) + start;
 	} else {
-		return change * (7.5625 * (time -= 2.625 / 2.75) * time + 0.984375) + start;
+		return end * (7.5625 * (time -= 2.625 / 2.75) * time + 0.984375) + start;
 	}
 };
 /**
@@ -72,16 +81,19 @@ export const easeOut: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeInOut: EasingFunction = (time, start, change, duration) => {
+export const easeInOut: EasingFunction = (time, start, end, duration) => {
 	if (time < duration / 2) {
-		return easeIn(time * 2, 0, change, duration) * 0.5 + start;
+		return easeIn(time * 2, 0, end, duration) * 0.5 + start;
 	} else {
 		return (
-			easeOut(time * 2 - duration, 0, change, duration) * 0.5 +
-			change * 0.5 +
-			start
+			easeOut(time * 2 - duration, 0, end, duration) * 0.5 + end * 0.5 + start
 		);
 	}
 };

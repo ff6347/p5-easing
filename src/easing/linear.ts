@@ -22,10 +22,15 @@ import { EasingFunction } from "../types";
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeIn: EasingFunction = (time, start, change, duration) => {
-	return (change * time) / duration + start;
+export const easeIn: EasingFunction = (time, start, end, duration) => {
+	return (end * time) / duration + start;
 };
 /**
  * Linear out easing function
@@ -43,10 +48,15 @@ export const easeIn: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeOut: EasingFunction = (time, start, change, duration) => {
-	return (change * time) / duration + start;
+export const easeOut: EasingFunction = (time, start, end, duration) => {
+	return (end * time) / duration + start;
 };
 
 /**
@@ -65,10 +75,15 @@ export const easeOut: EasingFunction = (time, start, change, duration) => {
  * circle(x, y, 10);
  * }
  *
- * @returns {number} - The calculated value at the current time.
+
+ * @param time - The current time.
+ * @param start - The start value.
+ * @param end - The end in value.
+ * @param duration - The duration of the animation.
+ * @returns The calculated value at the current time.
  */
-export const easeInOut: EasingFunction = (time, start, change, duration) => {
-	return (change * time) / duration + start;
+export const easeInOut: EasingFunction = (time, start, end, duration) => {
+	return (end * time) / duration + start;
 };
 
 export {
