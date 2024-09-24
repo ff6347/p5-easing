@@ -20,8 +20,8 @@
  * }
  */
 const easeIn$a = (time, start, change, duration) => {
-	const s = 1.70158;
-	return change * (time /= duration) * time * ((s + 1) * time - s) + start;
+    const s = 1.70158;
+    return change * (time /= duration) * time * ((s + 1) * time - s) + start;
 };
 /**
  * back out easing function that decelerates into the animation.
@@ -41,11 +41,9 @@ const easeIn$a = (time, start, change, duration) => {
  *
  */
 const easeOut$a = (time, start, change, duration) => {
-	const s = 1.70158;
-	return (
-		change * ((time = time / duration - 1) * time * ((s + 1) * time + s) + 1) +
-		start
-	);
+    const s = 1.70158;
+    return (change * ((time = time / duration - 1) * time * ((s + 1) * time + s) + 1) +
+        start);
 };
 /**
  * back in-out easing function that accelerates into and decelerates out of the animation.
@@ -66,16 +64,12 @@ const easeOut$a = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$a = (time, start, change, duration) => {
-	let s = 1.70158;
-	if ((time /= duration / 2) < 1) {
-		return (
-			(change / 2) * (time * time * (((s *= 1.525) + 1) * time - s)) + start
-		);
-	}
-	return (
-		(change / 2) * ((time -= 2) * time * (((s *= 1.525) + 1) * time + s) + 2) +
-		start
-	);
+    let s = 1.70158;
+    if ((time /= duration / 2) < 1) {
+        return ((change / 2) * (time * time * (((s *= 1.525) + 1) * time - s)) + start);
+    }
+    return ((change / 2) * ((time -= 2) * time * (((s *= 1.525) + 1) * time + s) + 2) +
+        start);
 };
 
 /**
@@ -102,10 +96,10 @@ const easeInOut$a = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn$9 = (time, start, change, duration) => {
-	return change - easeOut$9(duration - time, 0, change, duration) + start;
+    return change - easeOut$9(duration - time, 0, change, duration) + start;
 };
 /**
- * Bounce in easing function
+ * Bounce out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -123,18 +117,21 @@ const easeIn$9 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut$9 = (time, start, change, duration) => {
-	if ((time /= duration) < 1 / 2.75) {
-		return change * (7.5625 * time * time) + start;
-	} else if (time < 2 / 2.75) {
-		return change * (7.5625 * (time -= 1.5 / 2.75) * time + 0.75) + start;
-	} else if (time < 2.5 / 2.75) {
-		return change * (7.5625 * (time -= 2.25 / 2.75) * time + 0.9375) + start;
-	} else {
-		return change * (7.5625 * (time -= 2.625 / 2.75) * time + 0.984375) + start;
-	}
+    if ((time /= duration) < 1 / 2.75) {
+        return change * (7.5625 * time * time) + start;
+    }
+    else if (time < 2 / 2.75) {
+        return change * (7.5625 * (time -= 1.5 / 2.75) * time + 0.75) + start;
+    }
+    else if (time < 2.5 / 2.75) {
+        return change * (7.5625 * (time -= 2.25 / 2.75) * time + 0.9375) + start;
+    }
+    else {
+        return change * (7.5625 * (time -= 2.625 / 2.75) * time + 0.984375) + start;
+    }
 };
 /**
- * Bounce in easing function
+ * Bounce in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -152,15 +149,14 @@ const easeOut$9 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$9 = (time, start, change, duration) => {
-	if (time < duration / 2) {
-		return easeIn$9(time * 2, 0, change, duration) * 0.5 + start;
-	} else {
-		return (
-			easeOut$9(time * 2 - duration, 0, change, duration) * 0.5 +
-			change * 0.5 +
-			start
-		);
-	}
+    if (time < duration / 2) {
+        return easeIn$9(time * 2, 0, change, duration) * 0.5 + start;
+    }
+    else {
+        return (easeOut$9(time * 2 - duration, 0, change, duration) * 0.5 +
+            change * 0.5 +
+            start);
+    }
 };
 
 /**
@@ -187,10 +183,10 @@ const easeInOut$9 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn$8 = (time, start, change, duration) => {
-	return -change * (Math.sqrt(1 - (time /= duration) * time) - 1) + start;
+    return -change * (Math.sqrt(1 - (time /= duration) * time) - 1) + start;
 };
 /**
- * Circ in easing function
+ * Circ out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -208,10 +204,10 @@ const easeIn$8 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut$8 = (time, start, change, duration) => {
-	return change * Math.sqrt(1 - (time = time / duration - 1) * time) + start;
+    return change * Math.sqrt(1 - (time = time / duration - 1) * time) + start;
 };
 /**
- * Circ in easing function
+ * Circ in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -229,10 +225,10 @@ const easeOut$8 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$8 = (time, start, change, duration) => {
-	if ((time /= duration / 2) < 1) {
-		return (-change / 2) * (Math.sqrt(1 - time * time) - 1) + start;
-	}
-	return (change / 2) * (Math.sqrt(1 - (time -= 2) * time) + 1) + start;
+    if ((time /= duration / 2) < 1) {
+        return (-change / 2) * (Math.sqrt(1 - time * time) - 1) + start;
+    }
+    return (change / 2) * (Math.sqrt(1 - (time -= 2) * time) + 1) + start;
 };
 
 /**
@@ -259,10 +255,10 @@ const easeInOut$8 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn$7 = (time, start, change, duration) => {
-	return change * (time /= duration) * time * time + start;
+    return change * (time /= duration) * time * time + start;
 };
 /**
- * Cubic in easing function
+ * Cubic out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -280,10 +276,10 @@ const easeIn$7 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut$7 = (time, start, change, duration) => {
-	return change * ((time = time / duration - 1) * time * time + 1) + start;
+    return change * ((time = time / duration - 1) * time * time + 1) + start;
 };
 /**
- * Cubic in easing function
+ * Cubic in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -301,10 +297,10 @@ const easeOut$7 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$7 = (time, start, change, duration) => {
-	if ((time /= duration / 2) < 1) {
-		return (change / 2) * time * time * time + start;
-	}
-	return (change / 2) * ((time -= 2) * time * time + 2) + start;
+    if ((time /= duration / 2) < 1) {
+        return (change / 2) * time * time * time + start;
+    }
+    return (change / 2) * ((time -= 2) * time * time + 2) + start;
 };
 
 /**
@@ -331,20 +327,18 @@ const easeInOut$7 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn$6 = (time, start, change, duration) => {
-	if (time === 0) return start;
-	if ((time /= duration) === 1) return start + change;
-	const p = duration * 0.3;
-	const s = p / 4;
-	return (
-		-(
-			change *
-			Math.pow(2, 10 * (time -= 1)) *
-			Math.sin(((time * duration - s) * (2 * Math.PI)) / p)
-		) + start
-	);
+    if (time === 0)
+        return start;
+    if ((time /= duration) === 1)
+        return start + change;
+    const p = duration * 0.3;
+    const s = p / 4;
+    return (-(change *
+        Math.pow(2, 10 * (time -= 1)) *
+        Math.sin(((time * duration - s) * (2 * Math.PI)) / p)) + start);
 };
 /**
- * Elastic in easing function
+ * Elastic out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -362,20 +356,20 @@ const easeIn$6 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut$6 = (time, start, change, duration) => {
-	if (time === 0) return start;
-	if ((time /= duration) === 1) return start + change;
-	const p = duration * 0.3;
-	const s = p / 4;
-	return (
-		change *
-			Math.pow(2, -10 * time) *
-			Math.sin(((time * duration - s) * (2 * Math.PI)) / p) +
-		change +
-		start
-	);
+    if (time === 0)
+        return start;
+    if ((time /= duration) === 1)
+        return start + change;
+    const p = duration * 0.3;
+    const s = p / 4;
+    return (change *
+        Math.pow(2, -10 * time) *
+        Math.sin(((time * duration - s) * (2 * Math.PI)) / p) +
+        change +
+        start);
 };
 /**
- * Elastic in easing function
+ * Elastic in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -393,27 +387,25 @@ const easeOut$6 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$6 = (time, start, change, duration) => {
-	if (time === 0) return start;
-	if ((time /= duration / 2) === 2) return start + change;
-	const p = duration * (0.3 * 1.5);
-	const s = p / 4;
-	if (time < 1) {
-		return (
-			-0.5 *
-				(change *
-					Math.pow(2, 10 * (time -= 1)) *
-					Math.sin(((time * duration - s) * (2 * Math.PI)) / p)) +
-			start
-		);
-	}
-	return (
-		change *
-			Math.pow(2, -10 * (time -= 1)) *
-			Math.sin(((time * duration - s) * (2 * Math.PI)) / p) *
-			0.5 +
-		change +
-		start
-	);
+    if (time === 0)
+        return start;
+    if ((time /= duration / 2) === 2)
+        return start + change;
+    const p = duration * (0.3 * 1.5);
+    const s = p / 4;
+    if (time < 1) {
+        return (-0.5 *
+            (change *
+                Math.pow(2, 10 * (time -= 1)) *
+                Math.sin(((time * duration - s) * (2 * Math.PI)) / p)) +
+            start);
+    }
+    return (change *
+        Math.pow(2, -10 * (time -= 1)) *
+        Math.sin(((time * duration - s) * (2 * Math.PI)) / p) *
+        0.5 +
+        change +
+        start);
 };
 
 /**
@@ -440,12 +432,12 @@ const easeInOut$6 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn$5 = (time, start, change, duration) => {
-	return time === 0
-		? start
-		: change * Math.pow(2, 10 * (time / duration - 1)) + start;
+    return time === 0
+        ? start
+        : change * Math.pow(2, 10 * (time / duration - 1)) + start;
 };
 /**
- * Expo in easing function
+ * Expo out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -463,12 +455,12 @@ const easeIn$5 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut$5 = (time, start, change, duration) => {
-	return time === duration
-		? start + change
-		: change * (-Math.pow(2, (-10 * time) / duration) + 1) + start;
+    return time === duration
+        ? start + change
+        : change * (-Math.pow(2, (-10 * time) / duration) + 1) + start;
 };
 /**
- * Expo in easing function
+ * Expo in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -486,12 +478,14 @@ const easeOut$5 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$5 = (time, start, change, duration) => {
-	if (time === 0) return start;
-	if (time === duration) return start + change;
-	if ((time /= duration / 2) < 1) {
-		return (change / 2) * Math.pow(2, 10 * (time - 1)) + start;
-	}
-	return (change / 2) * (-Math.pow(2, -10 * --time) + 2) + start;
+    if (time === 0)
+        return start;
+    if (time === duration)
+        return start + change;
+    if ((time /= duration / 2) < 1) {
+        return (change / 2) * Math.pow(2, 10 * (time - 1)) + start;
+    }
+    return (change / 2) * (-Math.pow(2, -10 * --time) + 2) + start;
 };
 
 /**
@@ -518,10 +512,10 @@ const easeInOut$5 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn$4 = (time, start, change, duration) => {
-	return (change * time) / duration + start;
+    return (change * time) / duration + start;
 };
 /**
- * Linear in easing function
+ * Linear out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -539,10 +533,10 @@ const easeIn$4 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut$4 = (time, start, change, duration) => {
-	return (change * time) / duration + start;
+    return (change * time) / duration + start;
 };
 /**
- * Linear in easing function
+ * Linear in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -560,7 +554,7 @@ const easeOut$4 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$4 = (time, start, change, duration) => {
-	return (change * time) / duration + start;
+    return (change * time) / duration + start;
 };
 
 /**
@@ -587,10 +581,10 @@ const easeInOut$4 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn$3 = (time, start, change, duration) => {
-	return change * (time /= duration) * time + start;
+    return change * (time /= duration) * time + start;
 };
 /**
- * Quad in easing function
+ * Quad out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -608,10 +602,10 @@ const easeIn$3 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut$3 = (time, start, change, duration) => {
-	return -change * (time /= duration) * (time - 2) + start;
+    return -change * (time /= duration) * (time - 2) + start;
 };
 /**
- * Quad in easing function
+ * Quad in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -629,10 +623,10 @@ const easeOut$3 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$3 = (time, start, change, duration) => {
-	if ((time /= duration / 2) < 1) {
-		return (change / 2) * time * time + start;
-	}
-	return (-change / 2) * (--time * (time - 2) - 1) + start;
+    if ((time /= duration / 2) < 1) {
+        return (change / 2) * time * time + start;
+    }
+    return (-change / 2) * (--time * (time - 2) - 1) + start;
 };
 
 /**
@@ -659,10 +653,10 @@ const easeInOut$3 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn$2 = (time, start, change, duration) => {
-	return change * (time /= duration) * time * time * time + start;
+    return change * (time /= duration) * time * time * time + start;
 };
 /**
- * Quart in easing function
+ * Quart out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -680,12 +674,10 @@ const easeIn$2 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut$2 = (time, start, change, duration) => {
-	return (
-		-change * ((time = time / duration - 1) * time * time * time - 1) + start
-	);
+    return (-change * ((time = time / duration - 1) * time * time * time - 1) + start);
 };
 /**
- * Quart in easing function
+ * Quart in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -703,10 +695,10 @@ const easeOut$2 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$2 = (time, start, change, duration) => {
-	if ((time /= duration / 2) < 1) {
-		return (change / 2) * time * time * time * time + start;
-	}
-	return (-change / 2) * ((time -= 2) * time * time * time - 2) + start;
+    if ((time /= duration / 2) < 1) {
+        return (change / 2) * time * time * time * time + start;
+    }
+    return (-change / 2) * ((time -= 2) * time * time * time - 2) + start;
 };
 
 /**
@@ -733,10 +725,10 @@ const easeInOut$2 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn$1 = (time, start, change, duration) => {
-	return change * (time /= duration) * time * time * time * time + start;
+    return change * (time /= duration) * time * time * time * time + start;
 };
 /**
- * Quint in easing function
+ * Quint out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -754,13 +746,11 @@ const easeIn$1 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut$1 = (time, start, change, duration) => {
-	return (
-		change * ((time = time / duration - 1) * time * time * time * time + 1) +
-		start
-	);
+    return (change * ((time = time / duration - 1) * time * time * time * time + 1) +
+        start);
 };
 /**
- * Quint in easing function
+ * Quint in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -778,10 +768,10 @@ const easeOut$1 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut$1 = (time, start, change, duration) => {
-	if ((time /= duration / 2) < 1) {
-		return (change / 2) * time * time * time * time * time + start;
-	}
-	return (change / 2) * ((time -= 2) * time * time * time * time + 2) + start;
+    if ((time /= duration / 2) < 1) {
+        return (change / 2) * time * time * time * time * time + start;
+    }
+    return (change / 2) * ((time -= 2) * time * time * time * time + 2) + start;
 };
 
 /**
@@ -808,10 +798,10 @@ const easeInOut$1 = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeIn = (time, start, change, duration) => {
-	return -change * Math.cos((time / duration) * (Math.PI / 2)) + change + start;
+    return -change * Math.cos((time / duration) * (Math.PI / 2)) + change + start;
 };
 /**
- * Sine in easing function
+ * Sine out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -829,10 +819,10 @@ const easeIn = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeOut = (time, start, change, duration) => {
-	return change * Math.sin((time / duration) * (Math.PI / 2)) + start;
+    return change * Math.sin((time / duration) * (Math.PI / 2)) + start;
 };
 /**
- * Sine in easing function
+ * Sine in-out easing function
  * @example
  * const start = 0;
  * const end = 100;
@@ -850,112 +840,77 @@ const easeOut = (time, start, change, duration) => {
  * @returns {number} - The calculated value at the current time.
  */
 const easeInOut = (time, start, change, duration) => {
-	return (-change / 2) * (Math.cos((Math.PI * time) / duration) - 1) + start;
+    return (-change / 2) * (Math.cos((Math.PI * time) / duration) - 1) + start;
 };
 
 // Add easing functions to p5
 const easing = {
-	back: {
-		easeIn: easeIn$a,
-		easeOut: easeOut$a,
-		easeInOut: easeInOut$a,
-	},
-	bounce: {
-		easeIn: easeIn$9,
-		easeOut: easeOut$9,
-		easeInOut: easeInOut$9,
-	},
-	circ: {
-		easeIn: easeIn$8,
-		easeOut: easeOut$8,
-		easeInOut: easeInOut$8,
-	},
-	cubic: {
-		easeIn: easeIn$7,
-		easeOut: easeOut$7,
-		easeInOut: easeInOut$7,
-	},
-	elastic: {
-		easeIn: easeIn$6,
-		easeOut: easeOut$6,
-		easeInOut: easeInOut$6,
-	},
-	expo: {
-		easeIn: easeIn$5,
-		easeOut: easeOut$5,
-		easeInOut: easeInOut$5,
-	},
-	linear: {
-		easeIn: easeIn$4,
-		easeOut: easeOut$4,
-		easeInOut: easeInOut$4,
-	},
-	quad: {
-		easeIn: easeIn$3,
-		easeOut: easeOut$3,
-		easeInOut: easeInOut$3,
-	},
-	quart: {
-		easeIn: easeIn$2,
-		easeOut: easeOut$2,
-		easeInOut: easeInOut$2,
-	},
-	quint: {
-		easeIn: easeIn$1,
-		easeOut: easeOut$1,
-		easeInOut: easeInOut$1,
-	},
-	sine: {
-		easeIn: easeIn,
-		easeOut: easeOut,
-		easeInOut: easeInOut,
-	},
+    back: {
+        easeIn: easeIn$a,
+        easeOut: easeOut$a,
+        easeInOut: easeInOut$a,
+    },
+    bounce: {
+        easeIn: easeIn$9,
+        easeOut: easeOut$9,
+        easeInOut: easeInOut$9,
+    },
+    circ: {
+        easeIn: easeIn$8,
+        easeOut: easeOut$8,
+        easeInOut: easeInOut$8,
+    },
+    cubic: {
+        easeIn: easeIn$7,
+        easeOut: easeOut$7,
+        easeInOut: easeInOut$7,
+    },
+    elastic: {
+        easeIn: easeIn$6,
+        easeOut: easeOut$6,
+        easeInOut: easeInOut$6,
+    },
+    expo: {
+        easeIn: easeIn$5,
+        easeOut: easeOut$5,
+        easeInOut: easeInOut$5,
+    },
+    linear: {
+        easeIn: easeIn$4,
+        easeOut: easeOut$4,
+        easeInOut: easeInOut$4,
+    },
+    quad: {
+        easeIn: easeIn$3,
+        easeOut: easeOut$3,
+        easeInOut: easeInOut$3,
+    },
+    quart: {
+        easeIn: easeIn$2,
+        easeOut: easeOut$2,
+        easeInOut: easeInOut$2,
+    },
+    quint: {
+        easeIn: easeIn$1,
+        easeOut: easeOut$1,
+        easeInOut: easeInOut$1,
+    },
+    sine: {
+        easeIn: easeIn,
+        easeOut: easeOut,
+        easeInOut: easeInOut,
+    },
 };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 (function (p5) {
-	// p5.easing = easing;
-	for (const [type, functions] of Object.entries(easing)) {
-		for (const [name, func] of Object.entries(functions)) {
-			const funcName = `${name}${type.charAt(0).toUpperCase() + type.slice(1)}`;
-			p5.prototype[`${funcName}`] = func;
-		}
-	}
-	//@ts-expect-error window.p5 is added by the p5.js library
+    // p5.easing = easing;
+    for (const [type, functions] of Object.entries(easing)) {
+        for (const [name, func] of Object.entries(functions)) {
+            const funcName = `${name}${type.charAt(0).toUpperCase() + type.slice(1)}`;
+            p5.prototype[`${funcName}`] = func;
+        }
+    }
+    //@ts-expect-error window.p5 is added by the p5.js library
 })(window.p5);
 
-export {
-	easing as default,
-	easeIn$a as easeInBack,
-	easeIn$9 as easeInBounce,
-	easeIn$8 as easeInCirc,
-	easeIn$7 as easeInCubic,
-	easeIn$6 as easeInElastic,
-	easeIn$5 as easeInExpo,
-	easeIn$4 as easeInLinear,
-	easeInOut$a as easeInOutBack,
-	easeInOut$9 as easeInOutBounce,
-	easeInOut$8 as easeInOutCirc,
-	easeInOut$7 as easeInOutCubic,
-	easeInOut$6 as easeInOutElastic,
-	easeInOut$5 as easeInOutExpo,
-	easeInOut$4 as easeInOutLinear,
-	easeInOut$3 as easeInOutQuad,
-	easeInOut$2 as easeInOutQuart,
-	easeInOut$1 as easeInOutQuint,
-	easeInOut as easeInOutSine,
-	easeIn$3 as easeInQuad,
-	easeIn$2 as easeInQuart,
-	easeIn$1 as easeInQuint,
-	easeIn as easeInSine,
-	easeOut$a as easeOutBack,
-	easeOut$9 as easeOutBounce,
-	easeOut$8 as easeOutCirc,
-	easeOut$7 as easeOutCubic,
-	easeOut$6 as easeOutElastic,
-	easeOut$5 as easeOutExpo,
-	easeOut$4 as easeOutLinear,
-	easeOut$3 as easeOutQuad,
-	easeOut$2 as easeOutQuart,
-	easeOut$1 as easeOutQuint,
-	easeOut as easeOutSine,
-};
+export { easing as default, easeIn$a as easeInBack, easeIn$9 as easeInBounce, easeIn$8 as easeInCirc, easeIn$7 as easeInCubic, easeIn$6 as easeInElastic, easeIn$5 as easeInExpo, easeIn$4 as easeInLinear, easeInOut$a as easeInOutBack, easeInOut$9 as easeInOutBounce, easeInOut$8 as easeInOutCirc, easeInOut$7 as easeInOutCubic, easeInOut$6 as easeInOutElastic, easeInOut$5 as easeInOutExpo, easeInOut$4 as easeInOutLinear, easeInOut$3 as easeInOutQuad, easeInOut$2 as easeInOutQuart, easeInOut$1 as easeInOutQuint, easeInOut as easeInOutSine, easeIn$3 as easeInQuad, easeIn$2 as easeInQuart, easeIn$1 as easeInQuint, easeIn as easeInSine, easeOut$a as easeOutBack, easeOut$9 as easeOutBounce, easeOut$8 as easeOutCirc, easeOut$7 as easeOutCubic, easeOut$6 as easeOutElastic, easeOut$5 as easeOutExpo, easeOut$4 as easeOutLinear, easeOut$3 as easeOutQuad, easeOut$2 as easeOutQuart, easeOut$1 as easeOutQuint, easeOut as easeOutSine };
