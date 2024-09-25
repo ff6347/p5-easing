@@ -1,4 +1,5 @@
 ---
+import { Code } from "astro:components";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -16,6 +17,32 @@ import Layout from "../layouts/Layout.astro";
 		<p>
 			See the <a href="./docs/readme">docs</a>
 		</p>
+		<div class="wrapper">
+			<Code
+				wrap
+				lang="javascript"
+				theme={"github-light"}
+				code={`
+const duration = 100;
+const diam = 10;
+
+function setup() {
+  const canvas = createCanvas(100, 100);
+  canvas.parent("sketch");
+  background(255);
+}
+function draw() {
+  background(255);
+  const easing = easeInOutCubic(
+    frameCount % duration,
+    -10,
+    120,
+    duration);
+  ellipse(easing, height / 2, diam, diam);
+}
+					`}
+			/>
+		</div>
 	</main>
 	<script src="https://unpkg.com/p5@1.10.0/lib/p5.min.js" is:inline></script>
 	<script
