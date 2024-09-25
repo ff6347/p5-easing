@@ -50,4 +50,4 @@ circle(x, y, 10);
 
 ## Defined in
 
-[../src/easing/cubic.ts:85](https://github.com/ff6347/p5-easing/blob/226687d365587d73a12ac8d460667a1a198c05c5/src/easing/cubic.ts#L85)
+[../src/easing/cubic.ts:85](https://github.com/ff6347/p5-easing/blob/7e0a9fff511aefc237e917cc4b77c9211f7bfc19/src/easing/cubic.ts#L85)

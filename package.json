@@ -64,7 +64,8 @@
 		"build": "rollup -c",
 		"dev": "rollup -c -w",
 		"test:manual": "live-server test",
-		"test": "echo 'no tests yet' exit 0"
+		"test": "echo 'no tests yet' exit 0",
+		"typedoc": "typedoc"
 	},
 	"prettier": {
 		"tabWidth": 2,

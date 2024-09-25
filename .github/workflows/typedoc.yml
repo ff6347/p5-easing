@@ -49,11 +49,9 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
-      - name: Build
-        uses: erikyo/tsdoc-action@v1
-        with:
-          source_dir: ./src/*
-          options: "typedoc.json"
+      - name: Build Typedoc
+        run: npm run typedoc
+
       # now add the generate files to the repo
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:

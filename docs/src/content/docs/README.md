@@ -63,7 +63,7 @@ function draw() {
 	// It is the current frame count provided by p5.js
 	// constrained to the duration of the easing function using module
 	const time = frameCount % duration;
-	const x = easeInOutExpo(, start, end, duration);
+	const x = easeInOutExpo(time, start, end, duration);
 	const y = frameCount % duration;
 	circle(x, y, 10);
 }
@@ -75,3 +75,8 @@ This project uses easing functions based on Robert Penner's easing equations.
 Copyright © 2001 Robert Penner
 These functions are released under the BSD License.
 See http://robertpenner.com/easing_terms_of_use.html for full license details.
+
+## Realted Projects and Further Reading
+
+- [https://easings.net/](https://easings.net/)
+- [https://github.com/hslu-dda/p5easing](https://github.com/hslu-dda/p5easing)
