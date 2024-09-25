@@ -55,7 +55,7 @@ function draw() {
 	// It is the current frame count provided by p5.js
 	// constrained to the duration of the easing function using module
 	const time = frameCount % duration;
-	const x = easeInOutExpo(, start, end, duration);
+	const x = easeInOutExpo(time, start, end, duration);
 	const y = frameCount % duration;
 	circle(x, y, 10);
 }
