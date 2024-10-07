@@ -46,7 +46,7 @@
 		"globals": "15.9.0",
 		"live-server": "1.2.2",
 		"np": "10.0.7",
-		"npm-run-all2": "5.0.0",
+		"npm-run-all2": "6.2.3",
 		"p5": "1.10.0",
 		"prettier": "3.3.3",
 		"rollup": "4.22.4",
