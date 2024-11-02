@@ -22,10 +22,15 @@ this.p5.easing = (function (exports) {
      *   const y = frameCount % duration;
      *   circle(x, y, 10);
      * }
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$a = (time, start, change, duration) => {
+    const easeIn$a = (time, start, end, duration) => {
         const s = 1.70158;
-        return change * (time /= duration) * time * ((s + 1) * time - s) + start;
+        return end * (time /= duration) * time * ((s + 1) * time - s) + start;
     };
     /**
      * back out easing function that decelerates into the animation.
@@ -43,10 +48,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$a = (time, start, change, duration) => {
+    const easeOut$a = (time, start, end, duration) => {
         const s = 1.70158;
-        return (change * ((time = time / duration - 1) * time * ((s + 1) * time + s) + 1) +
+        return (end * ((time = time / duration - 1) * time * ((s + 1) * time + s) + 1) +
             start);
     };
     /**
@@ -64,15 +74,18 @@ this.p5.easing = (function (exports) {
      * const y = frameCount % duration;
      * circle(x, y, 10);
      * }
-     *
-     * @returns {number} - The calculated value at the current time.
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$a = (time, start, change, duration) => {
+    const easeInOut$a = (time, start, end, duration) => {
         let s = 1.70158;
         if ((time /= duration / 2) < 1) {
-            return ((change / 2) * (time * time * (((s *= 1.525) + 1) * time - s)) + start);
+            return (end / 2) * (time * time * (((s *= 1.525) + 1) * time - s)) + start;
         }
-        return ((change / 2) * ((time -= 2) * time * (((s *= 1.525) + 1) * time + s) + 2) +
+        return ((end / 2) * ((time -= 2) * time * (((s *= 1.525) + 1) * time + s) + 2) +
             start);
     };
 
@@ -97,10 +110,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$9 = (time, start, change, duration) => {
-        return change - easeOut$9(duration - time, 0, change, duration) + start;
+    const easeIn$9 = (time, start, end, duration) => {
+        return end - easeOut$9(duration - time, 0, end, duration) + start;
     };
     /**
      * Bounce out easing function
@@ -118,20 +136,24 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$9 = (time, start, change, duration) => {
+    const easeOut$9 = (time, start, end, duration) => {
         if ((time /= duration) < 1 / 2.75) {
-            return change * (7.5625 * time * time) + start;
+            return end * (7.5625 * time * time) + start;
         }
         else if (time < 2 / 2.75) {
-            return change * (7.5625 * (time -= 1.5 / 2.75) * time + 0.75) + start;
+            return end * (7.5625 * (time -= 1.5 / 2.75) * time + 0.75) + start;
         }
         else if (time < 2.5 / 2.75) {
-            return change * (7.5625 * (time -= 2.25 / 2.75) * time + 0.9375) + start;
+            return end * (7.5625 * (time -= 2.25 / 2.75) * time + 0.9375) + start;
         }
         else {
-            return change * (7.5625 * (time -= 2.625 / 2.75) * time + 0.984375) + start;
+            return end * (7.5625 * (time -= 2.625 / 2.75) * time + 0.984375) + start;
         }
     };
     /**
@@ -150,16 +172,19 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$9 = (time, start, change, duration) => {
+    const easeInOut$9 = (time, start, end, duration) => {
         if (time < duration / 2) {
-            return easeIn$9(time * 2, 0, change, duration) * 0.5 + start;
+            return easeIn$9(time * 2, 0, end, duration) * 0.5 + start;
         }
         else {
-            return (easeOut$9(time * 2 - duration, 0, change, duration) * 0.5 +
-                change * 0.5 +
-                start);
+            return (easeOut$9(time * 2 - duration, 0, end, duration) * 0.5 + end * 0.5 + start);
         }
     };
 
@@ -184,10 +209,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$8 = (time, start, change, duration) => {
-        return -change * (Math.sqrt(1 - (time /= duration) * time) - 1) + start;
+    const easeIn$8 = (time, start, end, duration) => {
+        return -end * (Math.sqrt(1 - (time /= duration) * time) - 1) + start;
     };
     /**
      * Circ out easing function
@@ -205,10 +235,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$8 = (time, start, change, duration) => {
-        return change * Math.sqrt(1 - (time = time / duration - 1) * time) + start;
+    const easeOut$8 = (time, start, end, duration) => {
+        return end * Math.sqrt(1 - (time = time / duration - 1) * time) + start;
     };
     /**
      * Circ in-out easing function
@@ -226,13 +261,18 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$8 = (time, start, change, duration) => {
+    const easeInOut$8 = (time, start, end, duration) => {
         if ((time /= duration / 2) < 1) {
-            return (-change / 2) * (Math.sqrt(1 - time * time) - 1) + start;
+            return (-end / 2) * (Math.sqrt(1 - time * time) - 1) + start;
         }
-        return (change / 2) * (Math.sqrt(1 - (time -= 2) * time) + 1) + start;
+        return (end / 2) * (Math.sqrt(1 - (time -= 2) * time) + 1) + start;
     };
 
     /**
@@ -256,10 +296,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$7 = (time, start, change, duration) => {
-        return change * (time /= duration) * time * time + start;
+    const easeIn$7 = (time, start, end, duration) => {
+        return end * (time /= duration) * time * time + start;
     };
     /**
      * Cubic out easing function
@@ -277,10 +322,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$7 = (time, start, change, duration) => {
-        return change * ((time = time / duration - 1) * time * time + 1) + start;
+    const easeOut$7 = (time, start, end, duration) => {
+        return end * ((time = time / duration - 1) * time * time + 1) + start;
     };
     /**
      * Cubic in-out easing function
@@ -298,13 +348,18 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$7 = (time, start, change, duration) => {
+    const easeInOut$7 = (time, start, end, duration) => {
         if ((time /= duration / 2) < 1) {
-            return (change / 2) * time * time * time + start;
+            return (end / 2) * time * time * time + start;
         }
-        return (change / 2) * ((time -= 2) * time * time + 2) + start;
+        return (end / 2) * ((time -= 2) * time * time + 2) + start;
     };
 
     /**
@@ -328,16 +383,21 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$6 = (time, start, change, duration) => {
+    const easeIn$6 = (time, start, end, duration) => {
         if (time === 0)
             return start;
         if ((time /= duration) === 1)
-            return start + change;
+            return start + end;
         const p = duration * 0.3;
         const s = p / 4;
-        return (-(change *
+        return (-(end *
             Math.pow(2, 10 * (time -= 1)) *
             Math.sin(((time * duration - s) * (2 * Math.PI)) / p)) + start);
     };
@@ -357,19 +417,24 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$6 = (time, start, change, duration) => {
+    const easeOut$6 = (time, start, end, duration) => {
         if (time === 0)
             return start;
         if ((time /= duration) === 1)
-            return start + change;
+            return start + end;
         const p = duration * 0.3;
         const s = p / 4;
-        return (change *
+        return (end *
             Math.pow(2, -10 * time) *
             Math.sin(((time * duration - s) * (2 * Math.PI)) / p) +
-            change +
+            end +
             start);
     };
     /**
@@ -388,27 +453,32 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$6 = (time, start, change, duration) => {
+    const easeInOut$6 = (time, start, end, duration) => {
         if (time === 0)
             return start;
         if ((time /= duration / 2) === 2)
-            return start + change;
+            return start + end;
         const p = duration * (0.3 * 1.5);
         const s = p / 4;
         if (time < 1) {
             return (-0.5 *
-                (change *
+                (end *
                     Math.pow(2, 10 * (time -= 1)) *
                     Math.sin(((time * duration - s) * (2 * Math.PI)) / p)) +
                 start);
         }
-        return (change *
+        return (end *
             Math.pow(2, -10 * (time -= 1)) *
             Math.sin(((time * duration - s) * (2 * Math.PI)) / p) *
             0.5 +
-            change +
+            end +
             start);
     };
 
@@ -433,12 +503,17 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$5 = (time, start, change, duration) => {
+    const easeIn$5 = (time, start, end, duration) => {
         return time === 0
             ? start
-            : change * Math.pow(2, 10 * (time / duration - 1)) + start;
+            : end * Math.pow(2, 10 * (time / duration - 1)) + start;
     };
     /**
      * Expo out easing function
@@ -456,12 +531,17 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$5 = (time, start, change, duration) => {
+    const easeOut$5 = (time, start, end, duration) => {
         return time === duration
-            ? start + change
-            : change * (-Math.pow(2, (-10 * time) / duration) + 1) + start;
+            ? start + end
+            : end * (-Math.pow(2, (-10 * time) / duration) + 1) + start;
     };
     /**
      * Expo in-out easing function
@@ -479,17 +559,22 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$5 = (time, start, change, duration) => {
+    const easeInOut$5 = (time, start, end, duration) => {
         if (time === 0)
             return start;
         if (time === duration)
-            return start + change;
+            return start + end;
         if ((time /= duration / 2) < 1) {
-            return (change / 2) * Math.pow(2, 10 * (time - 1)) + start;
+            return (end / 2) * Math.pow(2, 10 * (time - 1)) + start;
         }
-        return (change / 2) * (-Math.pow(2, -10 * --time) + 2) + start;
+        return (end / 2) * (-Math.pow(2, -10 * --time) + 2) + start;
     };
 
     /**
@@ -513,10 +598,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$4 = (time, start, change, duration) => {
-        return (change * time) / duration + start;
+    const easeIn$4 = (time, start, end, duration) => {
+        return (end * time) / duration + start;
     };
     /**
      * Linear out easing function
@@ -534,10 +624,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$4 = (time, start, change, duration) => {
-        return (change * time) / duration + start;
+    const easeOut$4 = (time, start, end, duration) => {
+        return (end * time) / duration + start;
     };
     /**
      * Linear in-out easing function
@@ -555,10 +650,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$4 = (time, start, change, duration) => {
-        return (change * time) / duration + start;
+    const easeInOut$4 = (time, start, end, duration) => {
+        return (end * time) / duration + start;
     };
 
     /**
@@ -582,10 +682,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$3 = (time, start, change, duration) => {
-        return change * (time /= duration) * time + start;
+    const easeIn$3 = (time, start, end, duration) => {
+        return end * (time /= duration) * time + start;
     };
     /**
      * Quad out easing function
@@ -603,10 +708,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$3 = (time, start, change, duration) => {
-        return -change * (time /= duration) * (time - 2) + start;
+    const easeOut$3 = (time, start, end, duration) => {
+        return -end * (time /= duration) * (time - 2) + start;
     };
     /**
      * Quad in-out easing function
@@ -624,13 +734,18 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$3 = (time, start, change, duration) => {
+    const easeInOut$3 = (time, start, end, duration) => {
         if ((time /= duration / 2) < 1) {
-            return (change / 2) * time * time + start;
+            return (end / 2) * time * time + start;
         }
-        return (-change / 2) * (--time * (time - 2) - 1) + start;
+        return (-end / 2) * (--time * (time - 2) - 1) + start;
     };
 
     /**
@@ -654,10 +769,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$2 = (time, start, change, duration) => {
-        return change * (time /= duration) * time * time * time + start;
+    const easeIn$2 = (time, start, end, duration) => {
+        return end * (time /= duration) * time * time * time + start;
     };
     /**
      * Quart out easing function
@@ -675,10 +795,14 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$2 = (time, start, change, duration) => {
-        return (-change * ((time = time / duration - 1) * time * time * time - 1) + start);
+    const easeOut$2 = (time, start, end, duration) => {
+        return -end * ((time = time / duration - 1) * time * time * time - 1) + start;
     };
     /**
      * Quart in-out easing function
@@ -696,13 +820,18 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$2 = (time, start, change, duration) => {
+    const easeInOut$2 = (time, start, end, duration) => {
         if ((time /= duration / 2) < 1) {
-            return (change / 2) * time * time * time * time + start;
+            return (end / 2) * time * time * time * time + start;
         }
-        return (-change / 2) * ((time -= 2) * time * time * time - 2) + start;
+        return (-end / 2) * ((time -= 2) * time * time * time - 2) + start;
     };
 
     /**
@@ -726,10 +855,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn$1 = (time, start, change, duration) => {
-        return change * (time /= duration) * time * time * time * time + start;
+    const easeIn$1 = (time, start, end, duration) => {
+        return end * (time /= duration) * time * time * time * time + start;
     };
     /**
      * Quint out easing function
@@ -747,11 +881,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut$1 = (time, start, change, duration) => {
-        return (change * ((time = time / duration - 1) * time * time * time * time + 1) +
-            start);
+    const easeOut$1 = (time, start, end, duration) => {
+        return (end * ((time = time / duration - 1) * time * time * time * time + 1) + start);
     };
     /**
      * Quint in-out easing function
@@ -769,13 +907,18 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut$1 = (time, start, change, duration) => {
+    const easeInOut$1 = (time, start, end, duration) => {
         if ((time /= duration / 2) < 1) {
-            return (change / 2) * time * time * time * time * time + start;
+            return (end / 2) * time * time * time * time * time + start;
         }
-        return (change / 2) * ((time -= 2) * time * time * time * time + 2) + start;
+        return (end / 2) * ((time -= 2) * time * time * time * time + 2) + start;
     };
 
     /**
@@ -799,10 +942,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeIn = (time, start, change, duration) => {
-        return -change * Math.cos((time / duration) * (Math.PI / 2)) + change + start;
+    const easeIn = (time, start, end, duration) => {
+        return -end * Math.cos((time / duration) * (Math.PI / 2)) + end + start;
     };
     /**
      * Sine out easing function
@@ -820,10 +968,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeOut = (time, start, change, duration) => {
-        return change * Math.sin((time / duration) * (Math.PI / 2)) + start;
+    const easeOut = (time, start, end, duration) => {
+        return end * Math.sin((time / duration) * (Math.PI / 2)) + start;
     };
     /**
      * Sine in-out easing function
@@ -841,10 +994,15 @@ this.p5.easing = (function (exports) {
      * circle(x, y, 10);
      * }
      *
-     * @returns {number} - The calculated value at the current time.
+
+     * @param time - The current time.
+     * @param start - The start value.
+     * @param end - The end in value.
+     * @param duration - The duration of the animation.
+     * @returns The calculated value at the current time.
      */
-    const easeInOut = (time, start, change, duration) => {
-        return (-change / 2) * (Math.cos((Math.PI * time) / duration) - 1) + start;
+    const easeInOut = (time, start, end, duration) => {
+        return (-end / 2) * (Math.cos((Math.PI * time) / duration) - 1) + start;
     };
 
     // Add easing functions to p5
