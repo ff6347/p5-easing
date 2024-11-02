@@ -40,6 +40,7 @@
 		"@rollup/plugin-typescript": "12.1.0",
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@types/p5": "1.7.6",
+		"@vitest/browser": "2.1.4",
 		"chokidar-cli": "3.0.0",
 		"esbuild": "0.24.0",
 		"eslint": "9.12.0",
@@ -60,7 +61,8 @@
 		"typedoc-plugin-markdown": "4.2.9",
 		"typescript": "5.6.3",
 		"typescript-eslint": "8.8.1",
-		"vitest": "2.1.4"
+		"vitest": "2.1.4",
+		"webdriverio": "9.2.8"
 	},
 	"scripts": {
 		"build": "rollup -c",
