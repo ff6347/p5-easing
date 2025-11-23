@@ -2,6 +2,7 @@
 name: Node.js CI
 permissions:
   contents: write
+  id-token: write # needed for OIDC
   packages: write
 on:
   push:
