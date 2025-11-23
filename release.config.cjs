@@ -1,5 +1,5 @@
 module.exports = {
-	extends: "@technologiestiftung/semantic-release-config",
+	extends: "@ff6347/semantic-release-config",
 	npmPublish: true,
 	branches: [
 		"+([0-9])?(.{+([0-9]),x}).x",
