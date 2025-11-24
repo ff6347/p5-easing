@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/ff6347/p5-easing/compare/v1.0.2...v1.0.3) (2025-11-24)
+
+
+### Bug Fixes
+
+* Rename files in release attachments for better recognition ([405f0fa](https://github.com/ff6347/p5-easing/commit/405f0fa78d679888e203d50074d128909322d6fa))
+
 ## [1.0.2](https://github.com/ff6347/p5-easing/compare/v1.0.1...v1.0.2) (2025-11-24)
 
 
