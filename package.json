@@ -1,6 +1,6 @@
 {
 	"name": "@ff6347/p5-easing",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"type": "module",
 	"main": "./dist/p5.easing.js",
 	"module": "./dist/p5.easing.mjs",
