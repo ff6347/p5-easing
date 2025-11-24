@@ -26,9 +26,12 @@ module.exports = {
 			"@semantic-release/github",
 			{
 				assets: [
-					{ path: "dist/p5.easing.js", label: "IIFE Bundle" },
-					{ path: "dist/p5.easing.min.js", label: "Minified IIFE Bundle" },
-					{ path: "dist/p5.easing.mjs", label: "ESM Bundle" },
+					{ path: "dist/p5.easing.js", label: "p5.easing.js IIFE Bundle" },
+					{
+						path: "dist/p5.easing.min.js",
+						label: "p5.easing.min.js Minified IIFE Bundle",
+					},
+					{ path: "dist/p5.easing.mjs", label: "p5.easing.mjs ESM Bundle" },
 					{ path: "dist/types/**/*", label: "TypeScript Definitions" },
 				],
 			},
