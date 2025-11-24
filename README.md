@@ -6,11 +6,16 @@ This is a library that provides easing functions for use with our without p5.js.
 
 To install the library, [download](https://github.com/ff6347/p5-easing/releases) the `p5.easing.js` files and include it in your project.
 
-Or use npm to install it:
+Or use a package manager to install it:
 
 ```bash
+# Using pnpm
+pnpm add @ff6347/p5-easing
+
+# Using npm
 npm install @ff6347/p5-easing
-# copy the files from node_modules/@ff6347/p5-easing/dist to your project
+
+# Copy the files from node_modules to your project
 cp node_modules/@ff6347/p5-easing/dist/p5.easing.js .
 ```
 

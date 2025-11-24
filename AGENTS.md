@@ -6,23 +6,34 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a TypeScript library that provides Robert Penner's easing functions for p5.js. The library can be used with or without p5.js, but is primarily designed for educational use with p5.js. It compiles to multiple formats (IIFE, ESM) and automatically extends the p5.js prototype with easing functions.
 
+## Tool Version Management
+
+This project uses [mise](https://mise.jdx.dev/) for managing Node.js and pnpm versions. The required versions are specified in `.mise.toml`. To install the correct versions:
+
+```bash
+mise install
+```
+
 ## Build and Development Commands
 
 ```bash
+# Install dependencies
+pnpm install
+
 # Build the library (outputs to dist/)
-npm run build
+pnpm run build
 
 # Build in watch mode for development
-npm run dev
+pnpm run dev
 
 # Run tests with Vitest (uses Firefox via WebDriverIO)
-npm test
+pnpm test
 
 # Run manual tests in browser
-npm run test:manual
+pnpm run test:manual
 
 # Generate TypeDoc documentation
-npm run typedoc
+pnpm run typedoc
 ```
 
 ## Architecture
