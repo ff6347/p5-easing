@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/ff6347/p5-easing/compare/v1.0.1...v1.0.2) (2025-11-24)
+
+
+### Bug Fixes
+
+* Add build version to relase assets move to pnpm and mise ([58ce222](https://github.com/ff6347/p5-easing/commit/58ce222c4c78dfe8b23573f3d2dd65dc1cbcb777))
+* ci remove is present ([6b576f2](https://github.com/ff6347/p5-easing/commit/6b576f25df57dc5cc85a84817f6baa87f5575d9f))
+
 ## [1.0.1](https://github.com/ff6347/p5-easing/compare/v1.0.0...v1.0.1) (2025-11-24)
 
 
